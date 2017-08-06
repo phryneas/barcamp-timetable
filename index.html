@@ -13,13 +13,10 @@
 <body>
 <div id="page">
     <header>
-        Logo goes here ;)
+        Logo/Header
     </header>
     <nav>
-        <ul>
-            <li><a>Samstag</a></li>
-            <li><a>Sonntag</a></li>
-        </ul>
+        Navigation?
     </nav>
     <main>
         <div id="about">
@@ -32,32 +29,107 @@
             <div id="day1-description">
                 <h1>Tag 1</h1>
             </div>
-            <div id="day1-room1">
+            <div id="room1-description">
                 <h1>Raum 1</h1>
-                <x-timetable>
-                    <x-timeslot from="10:00" duration="0:45">
-                        Slot 1
-                    </x-timeslot>
-                    <x-timeslot from="11:00" duration="0:45">
-                        Slot 2
-                    </x-timeslot>
-                    <x-timeslot from="12:00" duration="2:00" class="break">
-                        Mittagessen
-                    </x-timeslot>
-                    <x-timeslot from="14:00" duration="0:45">
-                        Slot 3
-                    </x-timeslot>
-                    <x-timeslot from="15:00" duration="0:45" class="empty">
-                        Slot 4
-                    </x-timeslot>
-                    <x-timeslot from="16:00" duration="0:45">
-                        Slot 5
-                    </x-timeslot>
-                    <x-timeslot from="17:00" duration="0:45">
-                        Slot 6
-                    </x-timeslot>
-                </x-timetable>
             </div>
+            <div id="room2-description">
+                <h1>Raum 2</h1>
+            </div>
+            <x-timetable id="day1-room1">
+                <x-timeslot from="10:00" duration="0:45">
+                    Slot 1
+                </x-timeslot>
+                <x-timeslot from="11:00" duration="0:45">
+                    Slot 2
+                </x-timeslot>
+                <x-timeslot from="12:00" duration="2:00" class="break">
+                    Mittagessen
+                </x-timeslot>
+                <x-timeslot from="14:00" duration="0:45">
+                    Slot 3
+                </x-timeslot>
+                <x-timeslot from="15:00" duration="0:45" class="empty">
+                    Slot 4
+                </x-timeslot>
+                <x-timeslot from="16:00" duration="0:45">
+                    Slot 5
+                </x-timeslot>
+                <x-timeslot from="17:00" duration="0:45">
+                    Slot 6
+                </x-timeslot>
+            </x-timetable>
+            <x-timetable id="day1-room2">
+                <x-timeslot from="10:00" duration="0:45">
+                    Slot 1
+                </x-timeslot>
+                <x-timeslot from="11:00" duration="0:45">
+                    Slot 2
+                </x-timeslot>
+                <x-timeslot from="12:00" duration="2:00" class="break">
+                    Mittagessen
+                </x-timeslot>
+                <x-timeslot from="14:00" duration="0:45">
+                    Slot 3
+                </x-timeslot>
+                <x-timeslot from="15:00" duration="0:45" class="empty">
+                    Slot 4
+                </x-timeslot>
+                <x-timeslot from="16:00" duration="0:45">
+                    Slot 5
+                </x-timeslot>
+                <x-timeslot from="17:00" duration="0:45">
+                    Slot 6
+                </x-timeslot>
+            </x-timetable>
+            <div id="day2-description">
+                <h1>Tag 2</h1>
+            </div>
+            <x-timetable id="day2-room1">
+                <x-timeslot from="10:00" duration="0:45">
+                    Slot 1
+                </x-timeslot>
+                <x-timeslot from="11:00" duration="0:45">
+                    Slot 2
+                </x-timeslot>
+                <x-timeslot from="12:00" duration="1:15" class="break">
+                    Mittagessen
+                </x-timeslot>
+                <x-timeslot from="13:30" duration="0:45">
+                    Slot 3
+                </x-timeslot>
+                <x-timeslot from="14:30" duration="0:45" class="empty">
+                    Slot 4
+                </x-timeslot>
+                <x-timeslot from="15:30" duration="0:45">
+                    Slot 5
+                </x-timeslot>
+                <x-timeslot from="16:30" duration="0:45">
+                    Slot 6
+                </x-timeslot>
+            </x-timetable>
+            <x-timetable id="day2-room2">
+                <x-timeslot from="10:00" duration="0:45">
+                    Slot 1
+                </x-timeslot>
+                <x-timeslot from="11:00" duration="0:45">
+                    Slot 2
+                </x-timeslot>
+                <x-timeslot from="12:00" duration="1:15" class="break">
+                    Mittagessen
+                </x-timeslot>
+                <x-timeslot from="13:30" duration="0:45">
+                    Slot 3
+                </x-timeslot>
+                <x-timeslot from="14:30" duration="0:45" class="empty">
+                    Slot 4
+                </x-timeslot>
+                <x-timeslot from="15:30" duration="0:45">
+                    Slot 5
+                </x-timeslot>
+                <x-timeslot from="16:30" duration="0:45">
+                    Slot 6
+                </x-timeslot>
+            </x-timetable>
         </div>
     </main>
     <aside>
@@ -70,5 +142,21 @@
     </aside>
     <footer>(c) 2017 Lenz Weber</footer>
 </div>
+<script type="text/javascript">
+  function copyNode(originalId, newId, beforeId) {
+    if (!document.getElementById(newId)) {
+      const originalNode = document.getElementById(originalId);
+      const newNode = originalNode.cloneNode(true);
+      newNode.id = newId;
+      let beforeNode = document.getElementById(beforeId);
+      beforeNode.parentNode.insertBefore(newNode, beforeNode);
+    }
+  }
+
+  // these nodes are required at two different positions for most layouts, so we clone them over
+  copyNode('room1-description', 'room1-description2', 'day2-room1');
+  copyNode('room2-description', 'room2-description2', 'day2-room2');
+
+</script>
 </body>
 </html>

@@ -1,88 +1,150 @@
 div, header, nav, main, aside, footer {
-  //border: 1px solid black;
+  border: 1px dotted black;
 }
 
-#page {
-  display: grid;
+@supports (display: grid) {
 
-  header {
-    grid-area: header;
-  }
-  nav {
-    grid-area: navigation;
-  }
-  main {
-    grid-area: content;
-  }
-  aside {
-    grid-area: sponsors;
-  }
-  footer {
-    grid-area: footer;
-  }
-}
+  #page {
+    display: grid;
 
-#page main {
-  display: grid;
+    header {
+      grid-area: header;
+    }
+    nav {
+      grid-area: navigation;
+    }
+    main {
+      grid-area: content;
+    }
+    aside {
+      grid-area: sponsors;
+    }
+    footer {
+      grid-area: footer;
+    }
+  }
 
-  #about {
-    grid-area: about;
+  #page main {
+    display: grid;
+
+    #about {
+      grid-area: about;
+    }
+    #rules {
+      grid-area: rules;
+    }
+    #timetables {
+      grid-area: timetables;
+    }
   }
-  #rules {
-    grid-area: rules;
-  }
+
   #timetables {
-    grid-area: timetables;
-  }
-}
+    display: grid;
 
-x-timetable {
-  display: flex;
-  flex-direction: column;
-}
+    #room1-description {
+      grid-area: room1-description
+    }
+    #room1-description2 {
+      grid-area: room1-description2
+    }
+    #room2-description {
+      grid-area: room2-description
+    }
+    #room2-description2 {
+      grid-area: room2-description2
+    }
+    #day1-description {
+      grid-area: day1-description
+    }
+    #day2-description {
+      grid-area: day2-description
+    }
+    #day1-room1 {
+      grid-area: day1-room1
+    }
+    #day1-room2 {
+      grid-area: day1-room2
+    }
+    #day2-room1 {
+      grid-area: day2-room1
+    }
+    #day2-room2 {
+      grid-area: day2-room2
+    }
+  }
 
-@media all {
-  body {
-    max-width: 2400px;
-    margin: auto;
+  x-timetable {
+    display: flex;
+    flex-direction: column;
   }
-  #page {
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-areas: "header header header" "navigation content sponsors" "footer footer footer";
-  }
-  #page main {
-    grid-template-columns: 1fr 4fr 1fr;
-    grid-template-areas: "about timetables rules";
-  }
-}
 
-@media all and (max-width: 1690px) {
-  #page {
-    grid-template-columns: 1fr 4fr;
-    grid-template-areas: "header header" "navigation content" "sponsors content" "footer footer";
-  }
-  #page main {
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas: "timetables about" "timetables rules";
-  }
-}
+  @media all {
+    body {
+      max-width: 2400px;
+      margin: auto;
+    }
+    #page {
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-areas: "header header header" "navigation content sponsors" "footer footer footer";
+    }
+    #page main {
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-areas: "about timetables rules";
+    }
 
-@media all and (max-width: 1280px) {
-  #page main {
-    grid-template-columns: 1fr;
-    grid-template-areas: "about" "timetables" "rules";
+    #timetables {
+      grid-column-gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-areas: "day1-description day1-description day2-description day2-description" "room1-description room2-description room1-description2 room2-description2" "day1-room1 day1-room2 day2-room1 day2-room2";
+      #room1-description2, #room2-description2 {
+        display: initial;
+      }
+    }
   }
-}
 
-@media all and (max-width: 980px) {
-  #page {
-    grid-template-columns: 1fr;
-    grid-template-areas: "header" "navigation" "content" "sponsors" "footer";
+  @media all and (max-width: 1690px) {
+    #page {
+      grid-template-columns: 1fr 4fr;
+      grid-template-areas: "header header" "navigation content" "sponsors content" "footer footer";
+    }
+    #page main {
+      grid-template-columns: 3fr 1fr;
+      grid-template-areas: "timetables about" "timetables rules";
+    }
+
+    #timetables {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "room1-description room2-description" "day1-description day1-description" "day1-room1 day1-room2" "day2-description day2-description" "day2-room1 day2-room2";
+      #room1-description2, #room2-description2 {
+        display: none;
+      }
+    }
   }
-}
 
-@media all and (max-width: 736px) {
-}
+  @media all and (max-width: 1280px) {
+    #page main {
+      grid-template-columns: 1fr;
+      grid-template-areas: "about" "timetables" "rules";
+    }
+  }
 
-@media all and (max-width: 480px) {
+  @media all and (max-width: 980px) {
+    #page {
+      grid-template-columns: 1fr;
+      grid-template-areas: "header" "navigation" "content" "sponsors" "footer";
+    }
+  }
+
+  @media all and (max-width: 736px) {
+    #timetables {
+      grid-template-columns: 1fr;
+      grid-template-areas: "day1-description" "room1-description" "day1-room1" "room2-description" "day1-room2" "day2-description" "room1-description2" "day2-room1" "room2-description2" "day2-room2";
+      #room1-description2, #room2-description2 {
+        display: initial;
+      }
+    }
+  }
+
+  @media all and (max-width: 480px) {
+  }
 }
