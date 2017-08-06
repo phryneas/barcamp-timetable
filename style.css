@@ -1,0 +1,14 @@
+x-timeslot {
+  border: 1px solid black;
+  background-color: green; }
+  x-timeslot[isFiller="true"] {
+    border: 1px hidden;
+    background-color: transparent; }
+  x-timeslot.break {
+    background-color: aqua; }
+  x-timeslot.empty {
+    background-color: gray; }
+  x-timeslot:not([isFiller="true"]):before {
+    content: attr(from); }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,88 @@
+div, header, nav, main, aside, footer {
+  //border: 1px solid black;
+}
+
+#page {
+  display: grid;
+
+  header {
+    grid-area: header;
+  }
+  nav {
+    grid-area: navigation;
+  }
+  main {
+    grid-area: content;
+  }
+  aside {
+    grid-area: sponsors;
+  }
+  footer {
+    grid-area: footer;
+  }
+}
+
+#page main {
+  display: grid;
+
+  #about {
+    grid-area: about;
+  }
+  #rules {
+    grid-area: rules;
+  }
+  #timetables {
+    grid-area: timetables;
+  }
+}
+
+x-timetable {
+  display: flex;
+  flex-direction: column;
+}
+
+@media all {
+  body {
+    max-width: 2400px;
+    margin: auto;
+  }
+  #page {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "header header header" "navigation content sponsors" "footer footer footer";
+  }
+  #page main {
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-areas: "about timetables rules";
+  }
+}
+
+@media all and (max-width: 1690px) {
+  #page {
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: "header header" "navigation content" "sponsors content" "footer footer";
+  }
+  #page main {
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "timetables about" "timetables rules";
+  }
+}
+
+@media all and (max-width: 1280px) {
+  #page main {
+    grid-template-columns: 1fr;
+    grid-template-areas: "about" "timetables" "rules";
+  }
+}
+
+@media all and (max-width: 980px) {
+  #page {
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "navigation" "content" "sponsors" "footer";
+  }
+}
+
+@media all and (max-width: 736px) {
+}
+
+@media all and (max-width: 480px) {
+}

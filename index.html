@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>Barcamp Timetable</title>
+    <meta name="description" content="a barcamp timatable">
+    <meta name="author" content="Lenz Weber">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="node_modules/@webcomponents/custom-elements/custom-elements.min.js"></script>
+    <script src="tags.js"></script>
+</head>
+<body>
+<div id="page">
+    <header>
+        Logo goes here ;)
+    </header>
+    <nav>
+        <ul>
+            <li><a>Samstag</a></li>
+            <li><a>Sonntag</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="about">
+            über dieses Barcamp
+        </div>
+        <div id="rules">
+            allgemeine Regeln.
+        </div>
+        <div id="timetables">
+            <div id="day1-description">
+                <h1>Tag 1</h1>
+            </div>
+            <div id="day1-room1">
+                <h1>Raum 1</h1>
+                <x-timetable>
+                    <x-timeslot from="10:00" duration="0:45">
+                        Slot 1
+                    </x-timeslot>
+                    <x-timeslot from="11:00" duration="0:45">
+                        Slot 2
+                    </x-timeslot>
+                    <x-timeslot from="12:00" duration="2:00" class="break">
+                        Mittagessen
+                    </x-timeslot>
+                    <x-timeslot from="14:00" duration="0:45">
+                        Slot 3
+                    </x-timeslot>
+                    <x-timeslot from="15:00" duration="0:45" class="empty">
+                        Slot 4
+                    </x-timeslot>
+                    <x-timeslot from="16:00" duration="0:45">
+                        Slot 5
+                    </x-timeslot>
+                    <x-timeslot from="17:00" duration="0:45">
+                        Slot 6
+                    </x-timeslot>
+                </x-timetable>
+            </div>
+        </div>
+    </main>
+    <aside>
+        <h1>Unsere Sponsoren:</h1>
+        <ul>
+            <li>Sponsor</li>
+            <li>Sponsor</li>
+            <li>Sponsor</li>
+        </ul>
+    </aside>
+    <footer>(c) 2017 Lenz Weber</footer>
+</div>
+</body>
+</html>
